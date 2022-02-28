@@ -1,0 +1,42 @@
+  /*var arr = [1,2];
+  var soma = 0;
+  for(var i = 0; i < arr.length; i++) {
+      soma += arr[i];
+  }
+  console.log(soma);*/
+
+
+-----------------
+
+
+/* ---------function filter sun for category */ 
+
+/*const sumDespesa = () => {
+   if (()=>filterData("Despesa")) {        
+
+   }
+}
+console.log(sumDespesa()) ;
+
+const [sumDesp, setSumDesp] = useState('');
+const teste = (value) => {   
+    fireDb.child("contacts").orderByChild("status").equalTo("Receita").on("value", (snapshot)  => {               
+        if(snapshot.val()) {                   
+        const sumDesp = snapshot.val();            
+            setData(sumDesp);            
+        }
+    }
+
+   )};
+   console.log()*/
+
+
+---------------------------
+
+{/*Período escolhido foi de <strong>{moment(startDate).format('L')}</strong> até <strong>{moment(endDate).format('L')}</strong>!<br/><br/>*/}
+                    {/*<input type="button" onClick={() => filterDate()} value={"filtrar"}></input>*/}
+
+----------------------------
+
+{/*<Button variant="contained" color="success" className="btn-mui" style={{boxShadow:"none"}} onClick={() => filterDate()}>Filtrar</Button>*/}
+                    {/*<Button variant="contained" color="error"  className="btn-mui" style={{boxShadow:"none"}} onClick={()=> handleReset()}>Resetar Lista</Button>*/}
