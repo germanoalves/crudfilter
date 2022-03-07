@@ -152,7 +152,6 @@ export const Home = () => {
   let dateE = someDateE.setDate(someDateE.getDate() + numberOfDaysToAdd);
   let defaultValueE = new Date(dateE).toISOString().split("T")[0];
 
-
   return (
     <div>
       <div>
@@ -395,7 +394,6 @@ export const Home = () => {
                 </tr>
               );
             })}
-            
           </tbody>
         )}
         {/* {sort && (
