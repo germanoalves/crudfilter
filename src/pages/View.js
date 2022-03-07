@@ -23,9 +23,9 @@ export const View = () => {
         })
     }, [id]);
     return (
-        <div style={{marginTop: "150px"}}>
-            <div className="card">
-                <div className="card-header">
+        <div className="mt-40 dark:text-white">
+            <div className="w-96 flex flex-col border border-green-600 text-center m-auto">
+                <div className=" h-9 pt-2 mb-4 bg-green-700 text-white text-center font-bold">
                     <p>Detalhe Conta</p>
                 </div>
                 <div className="container">
@@ -36,15 +36,7 @@ export const View = () => {
                     <strong>Name: </strong>
                     <span>{user.name}</span>
                     <br/>
-                    <br/>
-                    <strong>Email: </strong>
-                    <span>{user.email}</span>
-                    <br/>
-                    <br/>
-                    <strong>Contact: </strong>
-                    <span>{user.contact}</span>
-                    <br/>
-                    <br/>
+                    <br/>                    
                     <strong>Valor: R$ </strong>
                     <span>{user.valor}</span>
                     <br/>
@@ -58,7 +50,7 @@ export const View = () => {
                     <br/>
                     <br/>
                     <Link to="/">
-                        <button className="btn btn-back">Go Back</button>
+                        <button className="btn btn-back">Voltar</button>
                     </Link>
                 </div>
             </div>

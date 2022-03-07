@@ -85,17 +85,17 @@ export const AddEdit = () => {
     return (
         <div style={{marginTop: "100px"}}>
             <form style={{margin: "auto", padding: "15px", maxWidth: "400px", alignContent: "center"}} onSubmit={handleSubmit}>
-                <label htmlFor="name">Nome</label>
-                <input type="text" id="name" name="name" placeholder="Your Name..." value={name || ""} onChange={handleInputChange}></input>
+                <label htmlFor="name" className="dark:text-white">Nome</label>
+                <input type="text" id="name" name="name" placeholder="Nome item..." value={name || ""} onChange={handleInputChange}></input>
 
-                <label htmlFor="valor">Valor</label>
-                <input type="number" id="valor" name="valor" placeholder="Your Value..." value={valor || ""} onChange={handleInputChange}></input>
+                <label htmlFor="valor" className="dark:text-white">Valor</label>
+                <input type="number" id="valor" name="valor" placeholder="Valor R$..." value={valor || ""} onChange={handleInputChange}></input>
                 
-                <label htmlFor="data">Data</label>
+                <label htmlFor="data" className="dark:text-white">Data</label>
                 <input type="date" id="data" name="data"  onChange={handleInputChange}></input>
                 
                 
-                <label htmlFor="status">Categoria</label>
+                <label htmlFor="status" className="dark:text-white">Categoria</label>
                 {/*<input type="text" id="status" name="status" placeholder="Your status..." value={status || ""} onChange={handleInputChange}></input>*/}
                 <select id="status" name="status" placeholder="Your status..." value={status || ""} onChange={handleInputChange}>
                     <option>Escolha uma categoria</option>
@@ -104,7 +104,7 @@ export const AddEdit = () => {
 
                 </select>
 
-                <input type="submit" value={id ? "Update" : "Save"}></input>
+                <input type="submit" value={id ? "Update" : "Salvar"}></input>
             </form>
         </div>
     )

@@ -2,8 +2,8 @@ import React from "react"
 
 export const About = () => {
     return (
-        <div style={{ marginTop: "150px"}}>
-            <h2>
+        <div className="mt-40">
+            <h2 className=" dark:text-white">
                 {""}
                  Sistema simples de cadastro de contas
             </h2>
