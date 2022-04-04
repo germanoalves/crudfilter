@@ -6,7 +6,6 @@ export function Despesa() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    document.title = "($) Minhas Finanças ($)";
     filterData(cat.desp);
   }, []);
 
@@ -37,6 +36,8 @@ export function Despesa() {
         }
       });
   };
+
+  const bla = parseFloat(x).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
  
-  return <span>{parseFloat(x).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>;
+  return <span>{bla}</span>;
 }
