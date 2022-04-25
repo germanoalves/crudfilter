@@ -95,3 +95,9 @@
  .btn-mui{
      margin: 0px 5px !important
  }
+ .hiddenTable {
+     display: none !important;
+ }
+.show {
+    display: inline;
+}
