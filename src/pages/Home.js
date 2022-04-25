@@ -15,6 +15,7 @@ import { Receita } from "./Receita";
 import { Total } from "./Total";
 import { Chart } from "react-google-charts";
 
+
 export const Home = () => {
   moment.locale("pt-br");
 
@@ -227,6 +228,13 @@ useEffect(() => {
     tal.push([dadoNome[i], dadoValor[i]]);
   }
 
+
+ /*------------------------------------- */
+ const clearDates = () => {
+  document.getElementById('startDate').value='';
+  document.getElementById('endDate').value='';
+} 
+
   return (
     <div>
       <div>
@@ -267,6 +275,12 @@ useEffect(() => {
           >
             Filtrar
           </button>
+          <button
+            className="px-8 py-3 m-2 bg-purple-500 rounded-md font-semibold hover:bg-purple-400 hover:text-white "
+            onClick={() => clearDates()}
+          >
+            Limpar Datas
+          </button>
 
           <div className="ml-10">
             <button
@@ -284,6 +298,7 @@ useEffect(() => {
           </div>
         </div>
         <div className="py-4 justify-center">
+          
           <span className="inline-grid grid-cols-4 gap-4">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
