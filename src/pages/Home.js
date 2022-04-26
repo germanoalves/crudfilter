@@ -15,7 +15,6 @@ import { Receita } from "./Receita";
 import { Total } from "./Total";
 import { Chart } from "react-google-charts";
 
-
 export const Home = () => {
   moment.locale("pt-br");
 
@@ -93,6 +92,9 @@ export const Home = () => {
         let codeBlock = "";
         document.getElementById("wrapper").innerHTML = codeBlock;
         setStyle("show");
+        document.getElementById("graphic").style.display = "block";
+        document.getElementById("startDate").value = "";
+        document.getElementById("endDate").value = "";
       } else {
         setData({});
       }
@@ -112,44 +114,42 @@ export const Home = () => {
       });
   };
 
-/* ------------------- start filter page */
-let dateInitial = new Date();
-let firstDay = new Date(dateInitial.getFullYear(), dateInitial.getMonth(), 1);
-let lastDay = new Date(
-  dateInitial.getFullYear(),
-  dateInitial.getMonth() + 1,
-  0
-);
-let defaultValue = new Date(firstDay).toISOString().split("T")[0];
-let defaultValueE = new Date(lastDay).toISOString().split("T")[0];
+  /* ------------------- start filter page */
+  let dateInitial = new Date();
+  let firstDay = new Date(dateInitial.getFullYear(), dateInitial.getMonth(), 1);
+  let lastDay = new Date(
+    dateInitial.getFullYear(),
+    dateInitial.getMonth() + 1,
+    0
+  );
+  let defaultValue = new Date(firstDay).toISOString().split("T")[0];
+  let defaultValueE = new Date(lastDay).toISOString().split("T")[0];
 
-//var fistFullDate = firstDay.getDate() + "-" + ((firstDay.getMonth() + 1)) + "-" + (firstDay.getFullYear());
+  //var fistFullDate = firstDay.getDate() + "-" + ((firstDay.getMonth() + 1)) + "-" + (firstDay.getFullYear());
 
-const [startDate1, setStartDate1] = useState(defaultValue);
-const [endDate1, setEndDate1] = useState(defaultValueE);
-const filterDate1 = (value) => {
-const startDateFilter1 = startDate1;
-const endDateFilter1 = endDate1;
+  const [startDate1, setStartDate1] = useState(defaultValue);
+  const [endDate1, setEndDate1] = useState(defaultValueE);
+  const filterDate1 = (value) => {
+    const startDateFilter1 = startDate1;
+    const endDateFilter1 = endDate1;
 
-  fireDb
-    .child("contacts")
-    .orderByChild("data")
-    .startAt(startDateFilter1)
-    .endAt(endDateFilter1)
-    .on("value", (snapshot) => {
-      if (snapshot.val()) {
-        const data1 = snapshot.val();
-        setData(data1);
-      }
-    });
-};
-useEffect(() => {
-  filterDate1();
-}, []);
+    fireDb
+      .child("contacts")
+      .orderByChild("data")
+      .startAt(startDateFilter1)
+      .endAt(endDateFilter1)
+      .on("value", (snapshot) => {
+        if (snapshot.val()) {
+          const data1 = snapshot.val();
+          setData(data1);
+        }
+      });
+  };
+  useEffect(() => {
+    filterDate1();
+  }, []);
 
-/* ------------------------------------------*/
-
-
+  /* ------------------------------------------*/
 
   /* -----------date fuction--------------*/
   const [startDate, setStartDate] = useState("");
@@ -172,12 +172,15 @@ useEffect(() => {
           setData(data);
           if (setData(data) !== null) {
             let codeBlock =
-              '<div class="content">' +
+              '<div className="content">' +
               "<h1>Sem Valores</h1>" +
               '<p>Clique no botão "Resetar Lista"</p>' +
               "</div>";
             document.getElementById("wrapper").innerHTML = codeBlock;
             setStyle("hiddenTable");
+            document.getElementById("graphic").style.display = "none";
+            document.getElementById("results").style.display = "flex";
+            document.getElementById("results").style.justifyContent = "center";
           }
         } else {
           let codeBlock = [];
@@ -189,10 +192,7 @@ useEffect(() => {
     // setEndDate({ endDate: defaultValueE });
     //https://levelup.gitconnected.com/different-ways-to-check-if-an-object-is-empty-in-javascript-e1252d1c0b34
     //https://stackoverflow.com/questions/66248378/how-to-map-an-object-keys-array-inside-an-object-keys-in-react-js
-    
   };
-
-  
 
   /* -----------sum fuction list--------------*/
 
@@ -228,78 +228,81 @@ useEffect(() => {
     tal.push([dadoNome[i], dadoValor[i]]);
   }
 
-
- /*------------------------------------- */
- const clearDates = () => {
-  document.getElementById('startDate').value='';
-  document.getElementById('endDate').value='';
-} 
+  /*------------------------------------- */
+  const clearDates = () => {
+    document.getElementById("startDate").value = "";
+    document.getElementById("endDate").value = "";
+  };
 
   return (
     <div>
       <div>
-        <div className=" bg-gray-300 py-2 flex justify-center">
-          <button
-            className="px-8 py-3 m-2 bg-blue-500 rounded-md font-semibold hover:bg-blue-400 hover:text-white"
-            onClick={() => handleReset()}
-          >
-            Resetar Lista
-          </button>
-          <div className="mx-1 ">
-            <input
-              id="startDate"
-              type="date"
-              defaultValue={defaultValue}
-              className="max-w-xs"
-              //value={startDate.startDate}
-
-              // onChange={console.log("vai", someDate)}
-              onChange={(e) => setStartDate(e.target.value)}
-            />
-          </div>
-          <div className="mx-1">
-            <input
-              id="endDate"
-              type="date"
-              defaultValue={defaultValueE}
-              className="max-w-xs"
-              //value={endDate.endDate}
-              // usar um if pra isso aqui onChange={(e) => setEndDate(e.target.value)}
-              //https://pt.stackoverflow.com/questions/226086/como-retornar-o-primeiro-e-%C3%BAltimo-dia-do-m%C3%AAs-corrente-em-javascript
-               onChange={(e) => setEndDate(e.target.value)}
-            ></input>
-          </div>
-          <button
-            className="px-8 py-3 m-2 bg-yellow-500 rounded-md font-semibold hover:bg-yellow-400 hover:text-white "
-            onClick={() => filterDate()}
-          >
-            Filtrar
-          </button>
-          <button
-            className="px-8 py-3 m-2 bg-purple-500 rounded-md font-semibold hover:bg-purple-400 hover:text-white "
-            onClick={() => clearDates()}
-          >
-            Limpar Datas
-          </button>
-
-          <div className="ml-10">
+        <div className=" bg-gray-300 py-2 flex justify-center flex-wrap overflow-hidden">
+          <div class="w-full overflow-hidden xl:w-auto">
             <button
-              className="px-8 py-3 m-2 bg-green-500 rounded-md font-semibold hover:bg-green-400 hover:text-white"
-              onClick={() => filterData("Receita")}
+              className="px-8 py-3 m-2 bg-blue-500 rounded-md font-semibold hover:bg-blue-400 hover:text-white"
+              onClick={() => handleReset()}
             >
-              Receitas
+              Resetar Lista e Limpar Datas
+            </button>
+          </div>
+          <div class="flex justify-center items-center w-full overflow-hidden xl:w-1/4">
+            <div className="mr-4 w-full">
+              <input
+                id="startDate"
+                type="date"
+                defaultValue={defaultValue}
+                //value={startDate.startDate}
+                // onChange={console.log("vai", someDate)}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
+            <div className=" mr-4 w-full">
+              <input
+                id="endDate"
+                type="date"
+                defaultValue={defaultValueE}
+                //value={endDate.endDate}
+                // usar um if pra isso aqui onChange={(e) => setEndDate(e.target.value)}
+                //https://pt.stackoverflow.com/questions/226086/como-retornar-o-primeiro-e-%C3%BAltimo-dia-do-m%C3%AAs-corrente-em-javascript
+                onChange={(e) => setEndDate(e.target.value)}
+              ></input>
+            </div>
+          </div>
+          <div class="overflow-hidden xl:w-auto xl:text-left">
+            <button
+              className="px-8 py-3 m-2 bg-yellow-500 rounded-md font-semibold hover:bg-yellow-400 hover:text-white "
+              onClick={() => filterDate()}
+            >
+              Filtrar
             </button>
             <button
-              className="px-8 py-3 m-2 bg-red-500 rounded-md font-semibold hover:bg-red-400 hover:text-white"
-              onClick={() => filterData("Despesa")}
+              className="px-8 py-3 m-2 bg-purple-500 rounded-md font-semibold hover:bg-purple-400 hover:text-white "
+              onClick={() => clearDates()}
             >
-              Despesas
+              Limpar Datas
             </button>
+          </div>
+          <div class="w-full overflow-hidden xl:w-auto xl:text-left">
+            <div className="">
+              <button
+                className="px-8 py-3 m-2 bg-green-500 rounded-md font-semibold hover:bg-green-400 hover:text-white"
+                onClick={() => filterData("Receita")}
+              >
+                Receitas
+              </button>
+              <button
+                className="px-8 py-3 m-2 bg-red-500 rounded-md font-semibold hover:bg-red-400 hover:text-white"
+                onClick={() => filterData("Despesa")}
+              >
+                Despesas
+              </button>
+            </div>
           </div>
         </div>
-        <div className="py-4 justify-center">
-          
-          <span className="inline-grid grid-cols-4 gap-4">
+
+        <div class="flex flex-wrap justify-center overflow-hidden ">
+          <div class="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
                 <div className="flex-shrink pr-4">
@@ -330,7 +333,9 @@ useEffect(() => {
                 </div>
               </div>
             </div>
+          </div>
 
+          <div class="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
                 <div className="flex-shrink pr-4">
@@ -361,7 +366,9 @@ useEffect(() => {
                 </div>
               </div>
             </div>
+          </div>
 
+          <div class="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
                 <div className="flex-shrink pr-4">
@@ -392,7 +399,9 @@ useEffect(() => {
                 </div>
               </div>
             </div>
+          </div>
 
+          <div class="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
                 <div className="flex-shrink pr-4">
@@ -426,14 +435,14 @@ useEffect(() => {
                 </div>
               </div>
             </div>
-          </span>
+          </div>
         </div>
       </div>
       <br />
       <br />
-      <div className="inline-grid grid-cols-2 gap-4">
+      <div className="inline-grid grid-cols-2 gap-4" id="results">
         <div>
-          <div id="wrapper"></div>
+          <div id="wrapper" className="dark:text-white"></div>
           <div className={style}>
             <table className="table-auto m-auto text-base shadow-xl rounded-lg dark:text-white dark:border-white dark:border">
               <thead>
@@ -546,7 +555,7 @@ useEffect(() => {
           </div>
         </div>
         <div className="flex justify-center text-center">
-          <div className="">
+          <div id="graphic" className="dark:text-white">
             <p>Gráfico Lista</p>
             <Chart
               width={"600px"}
