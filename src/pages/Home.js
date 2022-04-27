@@ -228,6 +228,9 @@ export const Home = () => {
     tal.push([dadoNome[i], dadoValor[i]]);
   }
 
+
+  
+
   /*------------------------------------- */
   const clearDates = () => {
     document.getElementById("startDate").value = "";
@@ -441,10 +444,29 @@ export const Home = () => {
       <br />
       <br />
       <div className="inline-grid grid-cols-2 gap-4" id="results">
-        <div>
+        
+        
+      </div>
+
+      {/*<label>Sort By:</label>
+            <select className="dropdown" name="colValue" onChange={handleChange}>
+                <option>Please Select</option>
+                <option value="name">Nome</option>
+                <option value="valor">Valor</option>
+                <option value="data">Data</option>
+                <option value="status">Status</option>
+            </select>
+            <button className="btn btn-reset" onClick={handleReset}>Reset</button>*/}
+
+
+<div class="flex justify-center flex-wrap overflow-hidden">
+
+<div class="relative overflow-x-auto w-full my-2  mx-4 xl:w-1/3">
+  
+
           <div id="wrapper" className="dark:text-white"></div>
           <div className={style}>
-            <table className="table-auto m-auto text-base shadow-xl rounded-lg dark:text-white dark:border-white dark:border">
+            <table className="w-full text-base shadow-xl rounded-lg dark:text-white dark:border-white dark:border">
               <thead>
                 <tr className=" h-12 text-left border-b-2 border-gray-400 bg-gray-300 dark:text-black">
                   <th style={{ textAlign: "center" }}>Nº</th>
@@ -553,29 +575,27 @@ export const Home = () => {
         )} */}
             </table>
           </div>
-        </div>
-        <div className="flex justify-center text-center">
+        
+
+
+
+</div>
+
+<div class="bg-green-400 flex justify-center w-full my-2 overflow-hidden mx-4 xl:w-1/3">
+
           <div id="graphic" className="dark:text-white">
             <p>Gráfico Lista</p>
             <Chart
               width={"600px"}
-              height={"80%"}
+              height={"100%"}
               chartType="ColumnChart"
               data={tal}
             />
           </div>
-        </div>
-      </div>
+        
+</div>
 
-      {/*<label>Sort By:</label>
-            <select className="dropdown" name="colValue" onChange={handleChange}>
-                <option>Please Select</option>
-                <option value="name">Nome</option>
-                <option value="valor">Valor</option>
-                <option value="data">Data</option>
-                <option value="status">Status</option>
-            </select>
-            <button className="btn btn-reset" onClick={handleReset}>Reset</button>*/}
+</div>      
     </div>
   );
 };
