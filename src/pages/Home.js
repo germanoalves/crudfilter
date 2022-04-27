@@ -241,7 +241,7 @@ export const Home = () => {
     <div>
       <div>
         <div className=" bg-gray-300 py-2 flex justify-center flex-wrap overflow-hidden">
-          <div class="w-full overflow-hidden xl:w-auto">
+          <div className="w-full overflow-hidden xl:w-auto">
             <button
               className="px-8 py-3 m-2 bg-blue-500 rounded-md font-semibold hover:bg-blue-400 hover:text-white"
               onClick={() => handleReset()}
@@ -249,7 +249,7 @@ export const Home = () => {
               Resetar Lista e Limpar Datas
             </button>
           </div>
-          <div class="flex justify-center items-center w-full overflow-hidden xl:w-1/4">
+          <div className="flex justify-center items-center w-full overflow-hidden xl:w-1/4">
             <div className="mr-4 w-full">
               <input
                 id="startDate"
@@ -272,7 +272,7 @@ export const Home = () => {
               ></input>
             </div>
           </div>
-          <div class="overflow-hidden xl:w-auto xl:text-left">
+          <div className="overflow-hidden xl:w-auto xl:text-left">
             <button
               className="px-8 py-3 m-2 bg-yellow-500 rounded-md font-semibold hover:bg-yellow-400 hover:text-white "
               onClick={() => filterDate()}
@@ -286,7 +286,7 @@ export const Home = () => {
               Limpar Datas
             </button>
           </div>
-          <div class="w-full overflow-hidden xl:w-auto xl:text-left">
+          <div className="w-full overflow-hidden xl:w-auto xl:text-left">
             <div className="">
               <button
                 className="px-8 py-3 m-2 bg-green-500 rounded-md font-semibold hover:bg-green-400 hover:text-white"
@@ -305,7 +305,7 @@ export const Home = () => {
         </div>
 
         <div class="flex flex-wrap justify-center overflow-hidden ">
-          <div class="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
+          <div className="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
                 <div className="flex-shrink pr-4">
@@ -338,7 +338,7 @@ export const Home = () => {
             </div>
           </div>
 
-          <div class="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
+          <div className="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
                 <div className="flex-shrink pr-4">
@@ -371,7 +371,7 @@ export const Home = () => {
             </div>
           </div>
 
-          <div class="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
+          <div className="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
                 <div className="flex-shrink pr-4">
@@ -404,7 +404,7 @@ export const Home = () => {
             </div>
           </div>
 
-          <div class="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
+          <div className="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
                 <div className="flex-shrink pr-4">
@@ -459,9 +459,9 @@ export const Home = () => {
             <button className="btn btn-reset" onClick={handleReset}>Reset</button>*/}
 
 
-<div class="flex justify-center flex-wrap overflow-hidden">
+<div className="flex justify-center flex-wrap overflow-hidden">
 
-<div class="relative overflow-x-auto w-full my-2  mx-4 xl:w-1/3">
+<div className="relative overflow-x-auto w-full my-2  mx-4 xl:w-1/3">
   
 
           <div id="wrapper" className="dark:text-white"></div>
@@ -581,7 +581,7 @@ export const Home = () => {
 
 </div>
 
-<div class="bg-green-400 flex justify-center w-full my-2 overflow-hidden mx-4 xl:w-1/3">
+<div className="flex justify-center w-full my-2 overflow-hidden mx-4 xl:w-1/3">
 
           <div id="graphic" className="dark:text-white">
             <p>Gráfico Lista</p>
