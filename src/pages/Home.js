@@ -586,7 +586,7 @@ export const Home = () => {
             <p>Gráfico Lista</p>
             <Chart
               width={"600px"}
-              height={"100%"}
+              height={"400px"}
               chartType="ColumnChart"
               data={tal}
             />

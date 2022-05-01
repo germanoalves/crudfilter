@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { toast } from "react-toastify";
 
 
 
@@ -37,7 +38,7 @@ export const Login = ({children}, props) => {
     if (name !=="admin" && password != "123") {
       // if 'password' and 'confirm password'
       // does not match.
-      alert("tem algo errado!")
+      toast.error ("Dados de acesso incorretos. Verifique novamente.")
     
     } else {
       // display alert box with user

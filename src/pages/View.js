@@ -28,7 +28,7 @@ export const View = () => {
                 <div className=" h-9 pt-2 mb-4 bg-green-700 text-white text-center font-bold">
                     <p>Detalhe Conta</p>
                 </div>
-                <div className="container">
+                <div className="containerView">
                     <strong>ID: </strong>
                     <span>{id}</span>
                     <br/>
