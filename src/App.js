@@ -9,22 +9,27 @@ import { Search } from "./pages/Search";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Header } from "./components/Header";
+import { RequireAuth } from "./pages/RequireAuth";
+import { Login } from "./pages/Login";
+import { Teste } from "./pages/Teste";
 
 
 function App() {
-  
-
+ 
   return (
-    <Router>
+    
+    <Router>   
       <div className="App">
-        <Header />
+        <Header />      
         <ToastContainer position="top-center" />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/add" element={<AddEdit />} />
+          <Route path="*" element={<Login />} />
+          <Route exact path="/" element={<Login/>}></Route>
+          <Route path="/home" element={<RequireAuth><Home /></RequireAuth>} />
+          <Route path="/add" element={<RequireAuth><AddEdit /></RequireAuth>} />
           <Route path="/update/:id" element={<AddEdit />} />
           <Route path="/view/:id" element={<View />} />
-          <Route path="/help" element={<Help />} />
+          <Route path="/help" element={<RequireAuth><Help /></RequireAuth>} />
           <Route path="/search" element={<Search />} />
         </Routes>
       </div>
@@ -33,3 +38,6 @@ function App() {
 }
 
 export default App;
+
+
+// https://dev.to/iamandrewluca/private-route-in-react-router-v6-lg5

@@ -14,6 +14,7 @@ import { Despesa } from "./Despesa";
 import { Receita } from "./Receita";
 import { Total } from "./Total";
 import { Chart } from "react-google-charts";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export const Home = () => {
   moment.locale("pt-br");
@@ -228,13 +229,17 @@ export const Home = () => {
     tal.push([dadoNome[i], dadoValor[i]]);
   }
 
-
-  
-
   /*------------------------------------- */
   const clearDates = () => {
     document.getElementById("startDate").value = "";
     document.getElementById("endDate").value = "";
+  };
+
+  /*---------- */
+
+  const handleClear = () => {
+    localStorage.clear();
+    window.location.reload();
   };
 
   return (
@@ -299,6 +304,12 @@ export const Home = () => {
                 onClick={() => filterData("Despesa")}
               >
                 Despesas
+              </button>
+              <button
+                className="px-8 py-3 m-2  bg-gray-700 rounded-md font-semibold text-gray-300 hover:bg-gray-400 hover:text-white"
+                onClick={handleClear}
+              >
+                <LogoutIcon></LogoutIcon> Sair Sistema
               </button>
             </div>
           </div>
@@ -443,10 +454,7 @@ export const Home = () => {
       </div>
       <br />
       <br />
-      <div className="inline-grid grid-cols-2 gap-4" id="results">
-        
-        
-      </div>
+      <div className="inline-grid grid-cols-2 gap-4" id="results"></div>
 
       {/*<label>Sort By:</label>
             <select className="dropdown" name="colValue" onChange={handleChange}>
@@ -458,12 +466,8 @@ export const Home = () => {
             </select>
             <button className="btn btn-reset" onClick={handleReset}>Reset</button>*/}
 
-
-<div className="flex justify-center flex-wrap overflow-hidden">
-
-<div className="relative overflow-x-auto w-full my-2  mx-4 xl:w-1/3">
-  
-
+      <div className="flex justify-center flex-wrap overflow-hidden">
+        <div className="relative overflow-x-auto w-full my-2  mx-4 xl:w-1/3">
           <div id="wrapper" className="dark:text-white"></div>
           <div className={style}>
             <table className="w-full text-base shadow-xl rounded-lg dark:text-white dark:border-white dark:border">
@@ -575,14 +579,9 @@ export const Home = () => {
         )} */}
             </table>
           </div>
-        
+        </div>
 
-
-
-</div>
-
-<div className="flex justify-center w-full my-2 overflow-hidden mx-4 xl:w-1/3">
-
+        <div className="flex justify-center w-full my-2 overflow-hidden mx-4 xl:w-1/3">
           <div id="graphic" className="dark:text-white">
             <p>Gráfico Lista</p>
             <Chart
@@ -592,10 +591,8 @@ export const Home = () => {
               data={tal}
             />
           </div>
-        
-</div>
-
-</div>      
+        </div>
+      </div>
     </div>
   );
 };
