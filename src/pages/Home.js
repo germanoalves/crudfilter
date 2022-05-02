@@ -15,6 +15,7 @@ import { Receita } from "./Receita";
 import { Total } from "./Total";
 import { Chart } from "react-google-charts";
 import LogoutIcon from "@mui/icons-material/Logout";
+import WysiwygIcon from "@mui/icons-material/Wysiwyg";
 
 export const Home = () => {
   moment.locale("pt-br");
@@ -244,6 +245,13 @@ export const Home = () => {
 
   return (
     <div>
+      <div className="bg-green-400 flex w-full mb-10 mt-5">
+        <div className=" py-4 text-green-900 sm:flex sm:flex-wrap sm:items-center sm:mx-auto sm:justify-between md:container">
+          <h1 className="flex">
+            <WysiwygIcon className="mr-2"></WysiwygIcon> HOME
+          </h1>
+        </div>
+      </div>
       <div>
         <div className=" bg-gray-300 py-2 flex justify-center flex-wrap overflow-hidden">
           <div className="w-full overflow-hidden xl:w-auto">
@@ -315,7 +323,7 @@ export const Home = () => {
           </div>
         </div>
 
-        <div class="flex flex-wrap justify-center overflow-hidden ">
+        <div className="flex flex-wrap justify-center overflow-hidden mt-6 -mb-10 ">
           <div className="m-2 w-full overflow-hidden xl:my-2 xl:px-1 xl:w-1/6">
             <div className="bg-white border rounded shadow p-2">
               <div className="flex flex-row items-center">
@@ -468,7 +476,7 @@ export const Home = () => {
 
       <div className="flex justify-center flex-wrap overflow-hidden">
         <div className="relative overflow-x-auto w-full my-2  mx-4 xl:w-1/3">
-          <div id="wrapper" className="dark:text-white"></div>
+          <div id="wrapper" className="dark:text-white sm:mt-4"></div>
           <div className={style}>
             <table className="w-full text-base shadow-xl rounded-lg dark:text-white dark:border-white dark:border">
               <thead>
@@ -580,8 +588,7 @@ export const Home = () => {
             </table>
           </div>
         </div>
-
-        <div className="flex justify-center w-full my-2 overflow-hidden mx-4 xl:w-1/3">
+        <div className="flex justify-center w-full my-4 sm:my-0 overflow-hidden mx-4 xl:w-1/3">
           <div id="graphic" className="dark:text-white">
             <p>Gráfico Lista</p>
             <Chart

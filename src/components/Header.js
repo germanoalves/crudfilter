@@ -88,36 +88,36 @@ export const Header = () => {
             
     </div>*/
 
-    <nav className=" border-gray-200 px-2 sm:px-4 py-2.5">
+    <nav className=" border-gray-200 py-2.5 sm:px-4 ">
       <div className="  sm:flex sm:flex-wrap sm:items-center sm:mx-auto sm:justify-between md:container">
         <Link to="/">
           <img src={imagemlogo} className="flex float-left w-72 md:w-80" />
         </Link>
         <div className="mt-6 pt-6">
-        <button
-          id="open"
-          data-collapse-toggle="mobile-menu"
-          type="button"
-          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="mobile-menu-2"
-          aria-expanded="false"
-          onClick={handleMenuOpen}
-        >
-          <span className="sr-only">Open main menu</span>
-          <MenuIcon></MenuIcon>
-        </button>
-        <button
-          id="close"
-          data-collapse-toggle="mobile-menu-hidden"
-          type="button"
-          className="hidden items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="mobile-menu-2"
-          aria-expanded="false"
-          onClick={handleMenuClose}
-        >
-          <span className="sr-only">Open main menu</span>
-          <CloseIcon></CloseIcon>
-        </button>
+          <button
+            id="open"
+            data-collapse-toggle="mobile-menu"
+            type="button"
+            className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="mobile-menu-2"
+            aria-expanded="false"
+            onClick={handleMenuOpen}
+          >
+            <span className="sr-only">Open main menu</span>
+            <MenuIcon></MenuIcon>
+          </button>
+          <button
+            id="close"
+            data-collapse-toggle="mobile-menu-hidden"
+            type="button"
+            className="hidden items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="mobile-menu-2"
+            aria-expanded="false"
+            onClick={handleMenuClose}
+          >
+            <span className="sr-only">Open main menu</span>
+            <CloseIcon></CloseIcon>
+          </button>
         </div>
         <div className="hidden w-full md:block md:w-auto" id="mobile-menu">
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
