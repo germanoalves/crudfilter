@@ -508,7 +508,7 @@ export const Home = () => {
                           {moment(data[id].data).format("L")}
                         </td>
                         <td className="py-6 px-6">{data[id].status}</td>
-                        <td className="py-6 px-6">
+                        <td className="py-6 px-6 flex justify-center">
                           <Link to={`/update/${id}`}>
                             <button className="btn btn-edit">
                               <svg
