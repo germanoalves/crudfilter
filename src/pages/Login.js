@@ -35,7 +35,7 @@ export const Login = ({children}, props) => {
  
   const handleSubmit = (e) => {
     localStorage.setItem("senha", password);
-    if (name === "admin" && password === "tofalidozero1") {
+    if (name === "admin" && password === "tofalido01") {
       // if 'password' and 'confirm password'
       // does not match.
       navigate("/home");
