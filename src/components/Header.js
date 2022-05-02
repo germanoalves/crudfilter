@@ -89,11 +89,11 @@ export const Header = () => {
     </div>*/
 
     <nav className=" border-gray-200 px-2 sm:px-4 py-2.5">
-      <div className="container p-0 flex flex-wrap justify-center sm:justify-between items-center mx-auto">
+      <div className="  sm:flex sm:flex-wrap sm:items-center sm:mx-auto sm:justify-between md:container">
         <Link to="/">
-          <img src={imagemlogo} className="flex p-2 float-left" width={300} />
+          <img src={imagemlogo} className="flex float-left w-72 md:w-80" />
         </Link>
-        <div className="mt-8">
+        <div className="mt-6 pt-6">
         <button
           id="open"
           data-collapse-toggle="mobile-menu"
