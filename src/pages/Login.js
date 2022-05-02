@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 export const Login = ({children}, props) => {
   const [name, setName] = useState("");  
   const [password, setPassword] = useState("");
-  const [confPassword, setConfPassword] = useState("");
+  //const [confPassword, setConfPassword] = useState("");
 
   // function to update state of name with
   // value enter by user in form
@@ -29,18 +29,19 @@ export const Login = ({children}, props) => {
   // below function will be called when user
   // click on submit button .
 
-  const talogado = false
+  
   let navigate = useNavigate();
 
  
   const handleSubmit = (e) => {
     localStorage.setItem("senha", password);
-    if (name !=="admin" && password != "123") {
+    if (name === "admin" && password === "tofalidozero1") {
       // if 'password' and 'confirm password'
       // does not match.
-      toast.error ("Dados de acesso incorretos. Verifique novamente.")
-    
+      navigate("/home");
+      
     } else {
+      toast.error ("Dados de acesso incorretos. Verifique novamente.")
       // display alert box with user
       // 'name' and 'email' deatils .
       // alert(
@@ -52,7 +53,7 @@ export const Login = ({children}, props) => {
       //     email +
       //     '"' + password + '"'
       // );
-     navigate("/home");
+     
            
     }
     e.preventDefault();
