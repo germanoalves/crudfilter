@@ -33,7 +33,7 @@ export const View = () => {
                     <span>{id}</span>
                     <br/>
                     <br/>
-                    <strong>Name: </strong>
+                    <strong>Conta: </strong>
                     <span>{user.name}</span>
                     <br/>
                     <br/>                    
@@ -49,7 +49,7 @@ export const View = () => {
                     <span>{user.status}</span>
                     <br/>
                     <br/>
-                    <Link to="/">
+                    <Link to="/home">
                         <button className="btn btn-back">Voltar</button>
                     </Link>
                 </div>

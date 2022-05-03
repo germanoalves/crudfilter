@@ -62,7 +62,7 @@ export const AddEdit = () => {
           if (err) {
             toast.error(err);
           } else {
-            toast.success("Contato adicionado com sucesso!");
+            toast.success("Conta adicionada com sucesso!");
           }
         });
       } else {
@@ -70,12 +70,12 @@ export const AddEdit = () => {
           if (err) {
             toast.error(err);
           } else {
-            toast.success("Contato atualiado com sucesso!");
+            toast.success("Conta atualiada com sucesso!");
           }
         });
       }
 
-      setTimeout(() => navegate("/"), 500);
+      setTimeout(() => navegate("/home"), 500);
     }
   };
 

@@ -238,9 +238,10 @@ export const Home = () => {
 
   /*---------- */
 
-  const handleClear = () => {
+  const handleClear = () => {    
     localStorage.clear();
     window.location.reload();
+    
   };
 
   return (

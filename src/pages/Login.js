@@ -39,6 +39,7 @@ export const Login = ({children}, props) => {
       // if 'password' and 'confirm password'
       // does not match.
       navigate("/home");
+      toast.success("Acesso condedido com sucesso!");
       
     } else {
       toast.error ("Dados de acesso incorretos. Verifique novamente.")
@@ -64,7 +65,7 @@ export const Login = ({children}, props) => {
       <h2 className="dark:text-white">
         {""}
         <h1>
-          <strong>Área de Login</strong>
+          <strong>Acesso Minhas Finanças</strong>
         </h1>
 
         <div className="login">
